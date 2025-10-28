@@ -20,6 +20,18 @@ function ItemsListPage() {
       .finally(() => setIsLoading(false));
   }, []);
 
+  // Delete Item
+  const handleDelete = async (id) => {
+    try {
+      await axiosInstance.delete(`/items/${id}`);
+      setItems(items.filter((item) => item.id !== id));
+      toast.success("Item deleted successfully!");
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to delete item.");
+    }
+  };
+
   return (
     <MainLayout>
       {isLoading && (
@@ -78,6 +90,7 @@ function ItemsListPage() {
                               <button
                                 className="btn-small-light"
                                 aria-label="Delete item"
+                                onClick={() => handleDelete(item.id)}
                               >
                                 <LuTrash2 className="text-[16px]" />
                                 <span className="hidden md:block">Delete</span>
