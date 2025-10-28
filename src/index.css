@@ -1,13 +1,55 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+  --break-point-3xl: 1920;
+  --color-primary: #9328e7;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base {
+  body {
+    background-color: #f6f8fc;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  @keyframes text-shine {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  .animate-text-shine {
+    animation: text-shine 3s ease-in-out infinite alternate;
+  }
+}
+
+@layer components {
+  .input-box {
+    @apply w-full flex justify-between gap-3 text-sm text-black bg-gray-50/50 rounded px-4 py-3 mb-4 mt-3 border-2 border-gray-100 outline-none focus-within:border-blue-300;
+  }
+
+  .btn-primary {
+    @apply w-full text-sm font-medium text-white bg-black shadow-lg shadow-blue-600/5 p-[10px] rounded-md my-1 hover:bg-blue-600/15 hover:text-black cursor-pointer;
+  }
+
+  .btn-small {
+    @apply flex items-center gap-2 text-[18px] font-semibold text-white bg-gradient-to-r from-blue-500/85 to-blue-700 px-5 py-1.5 rounded-lg cursor-pointer;
+  }
+
+  .btn-small-light {
+    @apply flex items-center gap-2 text-[14px] font-semibold text-blue-800 bg-blue-600/15 border-2 border-blue-100 hover:border-blue-400 px-3 py-1.5 rounded-lg cursor-pointer;
+  }
+
+  .form-input {
+    @apply w-full text-sm text-black outline-none bg-white border-2 border-slate-100 px-2.5 py-3 rounded-md mt-2 placeholder:text-gray-500 focus-within:border-blue-300;
+  }
+  .rmdp-input {
+    border: none !important;
+    outline: none !important;
+  }
 }
