@@ -5,7 +5,7 @@ function MainLayout({ children }) {
   return (
     <div>
       <Navbar />
-      <div className="container mx-auto py-4">{children}</div>
+      <div className="container mx-auto py-8">{children}</div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import LandingPage from "./pages/Home/LandingPage";
-import ItemsListPage from "./pages/Home/ItemsListPage";
+import ItemsListPage from "./pages/ItemsListPage";
 import NotFound from "./components/NotFound";
 
 function App() {
